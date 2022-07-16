@@ -8,7 +8,7 @@ const state={
 module.exports.connect=function(done){
 //     const url=`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.qvpmm.mongodb.net/shopping?retryWrites=true&w=majority`
 //    const url=' mongodb+srv://sangeetha:<Q1hxvgIoeIKcuW7s>@cluster0.cxlnuak.mongodb.net/shopping?retryWrites=true&w=majority'
-    const url = 'mongodb://localhost:27017';
+    const url = 'mongodb://0.0.0.0:27017';
 //    const url= ' mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb'
     const dbname='shopping'
 
