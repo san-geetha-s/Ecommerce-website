@@ -1,0 +1,71 @@
+<section class="container">
+
+      <!-- Left Column / Headphones Image -->
+      <div >
+          <img  src="/product-images/{{this.product._id}}.jpg" alt="" class="productImage fadeInDown" style="position: ;">
+      </div>
+        
+        
+     
+
+
+      <!-- Right Column -->
+      <div class="fadeInDown" style="POSITION: relative;left: 300px;top: 50px;">
+
+        <!-- Product Description -->
+        <div class="product-description">
+          <span>{{this.product.Category}}</span>
+          <h1>{{this.product.Name}}</h1>
+          <p>{{this.product.Description}}</p>
+        </div>
+
+        <!-- Product Configuration -->
+        <div class="product-configuration">
+
+          <!-- Product Color -->
+          <div class="product-color">
+            <span>Available offers</span>
+
+            <div class="color-choose">
+             <span>Bank Offer5% Unlimited Cashback on DeKart Axes Bank Credit Card</span>
+             <span>Bank Offer15% Instant discount on first Pay Later order of ₹500 and above</span>
+             <span>Partner OfferBuy and Get Free 6 months Gaena Plus Subscription</span>
+             <span>No Cost EMI on Bajoj Finserv EMI Card on cart value above ₹2999</span>
+            </div>
+
+          </div>
+
+          <!-- Cable Configuration -->
+          <div class="cable-config">
+            
+            <span><img style="height: 50px;width: 50px; margin-left: 50px;" src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png" alt=""> </span>
+            <span><script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+                  <lord-icon
+                            src="https://cdn.lordicon.com/uetqnvvg.json"
+                            trigger="loop"
+                            colors="primary:#121331,secondary:#08a88a"
+                            style="width:50px;height:50px;margin-left: 50px;">
+                  </lord-icon>
+            </span>
+            <span><img style="height: 50px;width: 50px; margin-left: 50px;" src="https://images-na.ssl-images-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-warranty._CB485935626_.png" alt=""> </span>
+            
+            <br>
+            <span style="text-align: center;position: relative;left: 33px;">7 Days <br>Replacement</span>
+            <span style="text-align: center;position: relative;left: 62px;">DeKart <br>Delivered</span>
+            <span style="text-align: center;position: relative;left: 108px;">2 years <br>Warranty</span>
+
+            
+          </div>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price" style="padding-bottom: 50px;position: relative; left: 46px;">
+          <span>₹{{this.product.Price}}.00</span>
+          {{#if user}}
+          <a href="/cart" class="cart-btn cartBtn" onclick="addToCart('{{this.product._id}}')" style="text-decoration: none;">Add to cart</a>
+          {{else}}
+          <a href="/login" class="cart-btn cartBtn"  style="text-decoration: none;">Add to cart</a>
+          {{/if}}
+        </div>
+      </div>
+    </section>

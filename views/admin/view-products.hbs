@@ -1,0 +1,55 @@
+<section class="fadeInDown">
+    <div class="container" style="margin-top: 88px;">
+        <div class="row ">
+          <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/puvaffet.json"
+    trigger="loop"
+    colors="primary:#121331,secondary:#08a88a"
+    style="width:250px;height:250px">
+</lord-icon>
+            <a href="admin/add-product">
+                <button class="btn btn-success fadeIn fourth" type="button" style="position: absolute;top: 335px;left: 210px;">Add new products</button>
+            </a>
+        </div>
+
+
+        <table class="table table-striped"  id="productsTable" >
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Category</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+
+      <th scope="col">Image</th>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+      {{#each products}}
+    <tr>
+      <th scope="row">.</th>
+      <td>{{this.Name}}</td>
+      <td>{{this.Category}}</td>
+      <td>{{this.Description}}</td>
+      <td>{{this.Price}}</td>
+
+      <td><img style="width: 50px; height: 50px;" src="/product-images/{{this._id}}.jpg"></td>
+      <td>
+        <a href="/admin/edit-product/{{this._id}}" class="btn btn-primary">Edit</a>  
+        <a href="/admin/delete-product/{{this._id}}" class="btn btn-danger" onclick="return confirm('Do you want to Delete {{this.Name}}?')">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+    </div>
+</section>
+
+<script>
+  $(function(){
+    $('#productsTable').DataTable();
+  })
+</script>

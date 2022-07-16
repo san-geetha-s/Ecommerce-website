@@ -1,0 +1,57 @@
+<header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  
+   <img src="/images/download.png" style="width: 45px;height: 35px;position: relative;right: 1px;">
+   <a class="/images/istockphoto-915448148-612x612.jpg" href="/admin">Pet-Kart <span style="color: orange;"><i class="fas fa-user-cog"></i></span></a>
+   
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/admin">All Products<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/allOrders">All Orders</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/allUsers">All Users</a>
+      </li>
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      
+     
+
+
+
+
+
+
+        <div class="dropdown " style="position: relative;right: 58px;">
+  <button class="btn btn-secondary dropdown-toggle userDropdown fadeIn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   
+    <i class="fas fa-user"></i>
+      {{admin.Name}}
+      
+   
+ 
+  </button>
+  <div class="dropdown-menu userDropdown fadeIn navigationDrop" aria-labelledby="dropdownMenuButton">
+     
+      <a class="dropdown-item userDropdown" href="/admin/adminLogout">LogOut<span style="position: relative;left:10px"><i class="fas fa-sign-out-alt"></i></span></a>
+     
+     
+  
+  </div>
+</div>
+
+
+
+
+    </form>
+  </div>
+</nav>
+</header>

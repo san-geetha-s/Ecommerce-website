@@ -1,0 +1,52 @@
+<header>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light fadeInDown fadeIn first navigation">
+  
+  <img src="/images/download.png" style="width: 43px;height: 43px;position: relative;right:1px;">
+  <a class="navbar-brand deKart" href="/" >Pet-Kart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/"><span><i class="fas fa-home"></i></span> Products <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        {{#if user}}
+        <a class="nav-link" href="/cart"><span><i class="fas fa-shopping-cart"></i></span> Cart<span class="badge badge-success ml-1" id="cart-count">{{cartCount}}</span></a>
+        {{else}}
+        <a class="nav-link" href="/login"><span><i class="fas fa-shopping-cart"></i></span> Cart<span class="badge badge-success ml-1" id="cart-count">{{cartCount}}</span></a>
+        {{/if}}
+      </li>
+      {{#if user}}
+      <li class="nav-item">
+        <a class="nav-link" href="/orders"><span><i class="fas fa-clipboard-list"></i></span> Orders</a>
+      </li>
+      {{/if}}
+      
+    </ul>
+    <div class="dropdown " style="position: relative;right: 58px;">
+  <button class="btn btn-secondary dropdown-toggle userDropdown fadeIn" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{#if user}}
+    <i class="fas fa-user"></i>
+      {{user.Name}}
+      {{else}}
+      <i class="fas fa-user-alt-slash"></i>
+       Account
+    {{/if}}
+ 
+  </button>
+  <div class="dropdown-menu userDropdown fadeIn navigationDrop" aria-labelledby="dropdownMenuButton">
+     {{#if user}}
+      <a class="dropdown-item userDropdown" href="/logout">LogOut<span style="position: relative;left:10px"><i class="fas fa-sign-out-alt"></i></span></a>
+      {{else}}
+      <a class="dropdown-item userDropdown loginButton" href="/login"><span><i class="fas fa-sign-in-alt"></i></span> LogIn</a>
+    {{/if}}
+    
+  
+  </div>
+</div>
+  </div>
+</nav>
+    </header>

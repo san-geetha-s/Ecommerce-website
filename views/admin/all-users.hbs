@@ -1,0 +1,31 @@
+<section style="margin-top: 88px;">
+    <div class="container fadeInDown third">
+        <table class="table mt-5">
+            <thead class="tableHead" >
+                <tr>
+                   
+               
+                   
+               
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                  
+                </tr>
+            </thead>
+            <tbody >
+                {{#each users}}
+                    <tr>
+                        <td>{{this.Name}}</td>
+                    
+                        <td>{{this.Email}}</td>
+                        
+
+                       
+
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+
+    </div>
+</section>

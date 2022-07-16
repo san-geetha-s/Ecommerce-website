@@ -1,0 +1,141 @@
+<section>
+    <div class="container mt-5 fadeInDown  ">
+        <form action="" id="checkout-form">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Enter delivery address</h2>
+                    <script src="https://cdn.lordicon.com/libs/mssddfmo/lord-icon-2.1.0.js"></script>
+                    <lord-icon src="https://cdn.lordicon.com/zzcjjxew.json" trigger="loop"
+                        colors="primary:#121331,secondary:#08a88a" style="width:250px;height:250px">
+                    </lord-icon>
+                    <br>
+                    <div>
+
+                        <label for="">Address</label>
+                        <input type="text" name="address" id="address" class="form-control">
+                        <label for="">Pincode</label>
+                        <input type="text" name="pincode" id="pincode" class="form-control">
+                        <label for="">Mobile</label>
+                        <input type="text" name="mobile" id="mobile" class="form-control"
+                            style="position: relative;left: 4px">
+                        <input type="text" name="userId" id="" value="{{user._id}}" hidden>
+
+
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="container mt-5 ml-5 checkout">
+                        <h5>
+                            Total Amount:₹ {{total}}.00
+                        </h5>
+                        <hr>
+                        <div class="payment">
+                            <p>Payment Method</p>
+                            <label class="radio-inline">
+                                <input type="radio" name="payment-method" value="COD" checked><span
+                                    style="position: relative;left: 5px;"><i class="fas fa-truck"></i></span><span
+                                    style="position: relative;left: 5px;">CASH ON DELIVERY</span>
+                            </label>
+                            <label class="radio-inline MT-2">
+                                <input type="radio" name="payment-method" value="ONLINE"><span
+                                    style="position: relative;left: 5px;"><i class="far fa-credit-card"></i></span><span
+                                    style="position: relative;left: 6px;">ONLINE PAYMENT</span>
+                            </label>
+                            <button class="btn btn-primary float-right checkoutButton" type="submit"><span><i
+                                        class="fas fa-cash-register"></i></span> Checkout</button>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    $("#checkout-form").submit((e) => {
+        e.preventDefault()
+        $.ajax({
+            url: '/place-order',
+            method: 'post',
+            data: $('#checkout-form').serialize(),
+            success: (response) => {
+                alert(response)
+                if (response.codSuccess) {
+                    location.href = '/order-success'
+                }
+                else {
+
+                    razorpayPayment(response)
+                }
+            }
+        })
+    })
+    function razorpayPayment(order) {
+        var options = {
+            "key": 'rzp_test_mGdcASfZgLyGXd', // Enter the Key ID generated from the Dashboard
+            "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "currency": "INR",
+            "name": "Tomoskul",
+            "description": "Test Transaction",
+            "image": "/images/DeKart-logos_black.png",
+            "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+            "handler": function (response) {
+
+                verifyPayment(response, order)
+            },
+            "prefill": {
+                "name": "Sangeetha S",
+                "email": "Sangeethas12122000@example.com",
+                "contact": "9999999999"
+            },
+            "notes": {
+                "address": "Tomoskul"
+            },
+            "theme": {
+                "color": "#3399cc"
+            }
+        };
+        var rzp1 = new Razorpay(options);
+        rzp1.open();
+    }
+    function verifyPayment(payment, order) {
+        $.ajax({
+            url: '/verify-payment',
+            data: {
+                payment,
+                order
+            },
+
+            method: "post",
+            success: (response) => {
+                if (response.status) {
+                    location.href = '/order-success'
+
+                } else {
+                    alert('payment failed')
+                }
+            }
+        })
+    }
+</script>
+
+
+
+<style>
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+
+    label.radio-inline {
+        display: flex;
+        align-items: center;
+    }
+</style>
