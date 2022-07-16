@@ -6,8 +6,8 @@ const state={
 }
 
 module.exports.connect=function(done){
-    const url=`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.qvpmm.mongodb.net/shopping?retryWrites=true&w=majority`
-//    const url=' mongodb+srv://sangeetha:<password>@cluster0.cxlnuak.mongodb.net/?retryWrites=true&w=majority'
+//     const url=`mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.qvpmm.mongodb.net/shopping?retryWrites=true&w=majority`
+   const url=' mongodb+srv://sangeetha:<Q1hxvgIoeIKcuW7s>@cluster0.cxlnuak.mongodb.net/shopping?retryWrites=true&w=majority'
 //     const url = 'mongodb://localhost:27017';
     const dbname='shopping'
 
