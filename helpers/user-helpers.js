@@ -201,7 +201,7 @@ module.exports={
                   
               
             ]).toArray()
-//             console.log("total-------------"+total[0].total)
+            console.log("total-------------"+total[0].total)
             resolve(total[0].total)
         })
     },
