@@ -10,8 +10,8 @@ module.exports.connect=function(done){
 //    const url=' mongodb+srv://sangeetha:Q1hxvgIoeIKcuW7s@cluster0.cxlnuak.mongodb.net/shopping?retryWrites=true&w=majority'
 //     const url = 'mongodb://0.0.0.0:27017';
 //    const url= ' mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb'
-//      const url='mongodb+srv://sangeetha:PF9EugZe9cQK2GEN@cluster0.cxlnuak.mongodb.net/?retryWrites=true&w=majority'
-    const url= 'mongodb://localhost:27017';
+     const url='mongodb+srv://sangeetha:PF9EugZe9cQK2GEN@cluster0.cxlnuak.mongodb.net/?retryWrites=true&w=majority'
+//     const url= 'mongodb://localhost:27017';
    
     
     const dbname='shopping'
