@@ -232,7 +232,7 @@ module.exports={
     getCartProductList:(userId)=>{
         return new Promise(async(resolve,reject)=>{
             let cart=await db.get().collection(collection.CART_COLLECTION).findOne({user:ObjectId(userId)})
-            console.log("Products================="+cart.products);
+//             console.log("Products================="+cart.products);
             resolve(cart.products)
         })
     },
