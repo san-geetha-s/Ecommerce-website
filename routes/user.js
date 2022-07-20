@@ -8,7 +8,7 @@ const e = require('express');
 const hbs = require('express-handlebars') 
 
 const verifyLogin=function(req,res,next){
-  if(req.session.user){
+  if(req.session.userLoggedIn){
     next()
   }else{
     res.redirect("/login")
@@ -76,6 +76,7 @@ router.post('/login',(req,res)=>{
 
 router.get("/logout",function(req,res){
   req.session.user=null;
+  req.session.userLoggedIn=false
   res.redirect("/")
 })
 
