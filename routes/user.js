@@ -8,7 +8,7 @@ const e = require('express');
 const hbs = require('express-handlebars') 
 
 const verifyLogin=function(req,res,next){
-  if(req.session.userLoggedIn){
+  if(req.session.user){
     next()
   }else{
     res.redirect("/login")
