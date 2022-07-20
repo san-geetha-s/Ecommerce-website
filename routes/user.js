@@ -49,8 +49,8 @@ router.post('/signup',function(req,res){
     console.log(response);
    
  
-    // req.session.user=response;
-    // req.session.user.loggedIn=true;
+    req.session.user=response;
+    req.session.user.loggedIn=true;
     alert("Account created Successfully, now Login to your Account")
     res.redirect("/login")
 
