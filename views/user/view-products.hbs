@@ -15,8 +15,29 @@
                         <p class="card-text text-dark">₹{{this.Price}}</p>
                         
 
-                       <a href="/productPage/{{this._id}}" style="text-decoration: none;"> <button  class="btn btn-primary cartButton">Buy Now<span style="position: relative;left:5px"><i class="fas fa-cart-plus"></i></span></button></a>
+                       <a href="/productPage/{{this._id}}" style="text-decoration: none;"> <button  class="btn btn-primary cartButton">Add to cart<span style="position: relative;left:5px"><i class="fas fa-cart-plus"></i></span></button></a>
+                     <a href="/place-order" style="text-decoration: none;"> <button  class="btn btn-primary cartButton">Buy Now<span style="position: relative;left:5px"><i class="fas fa-cart-plus"></i></span></button></a>
                       </div>
+                    </div>
+                </div>
+                {{/each}}
+
+            </div>
+        </div>
+        
+    </section>
+    
+
+
+
+<script>
+     Handlebars.registerHelper('trimString', function(passedString) {
+    var theString = passedString.substring(0,5);
+    return new Handlebars.SafeString(theString)
+});
+</script>
+
+                     </div>
                     </div>
                 </div>
                 {{/each}}
